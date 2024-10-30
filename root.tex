@@ -18,11 +18,19 @@
 %% AltaCV uses the fontawesome5 and packages.
 %% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
 
-% Change the page layout if you need to
-\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+% Define a switch
+\newif\iflongversion
+% Set to true for the long version (single column), false for short version (two columns)
+\longversiontrue  % Uncomment this line for long version
+% \longversionfalse  % Uncomment this line for short version
+\iflongversion
+  % Single column layout for the long version
+  \geometry{left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+\else
+  % Two column layout for the short version
+  \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
 
-% The paracol package lets you typeset columns of text in parallel
-\usepackage{paracol}
+\fi
 
 % Change the font if you want to, depending on whether
 % you're using pdflatex or xelatex/lualatex
@@ -91,258 +99,66 @@
 %% for your publication list
 \input{pubs-num.tex}
 
-%% sample.bib contains your publications
-\addbibresource{root.bib}
+% %% sample.bib contains your publications
+% \addbibresource{root.bib}
 
 \begin{document}
 \name{Andrea Gallegati}
-\tagline{DevSecOps Engineer}
+\tagline{CSSLP – DevSecOps Engineer @ IDS AirNav -- ENAV Group}
 %% You can add multiple photos on the left or right
 \photoR{2.8cm}{bike}
 % \photoL{2.5cm}{Yacht_High,Suitcase_High}
 
 \personalinfo{%
-  % Not all of these are required!
-  \email{andrea.gallegati@icloud.com}
-  \phone{3381077321}
-  % \mailaddress{Åddrésş, Street, 00000 Cóuntry}
-  \location{Rome, IT} \\
-  % \homepage{www.homepage.com}
-  % \twitter{@GallegatiAndrea}
-  \linkedin{/andrea-gallegati}
-  \github{andreagalle}
-  \orcid{0000-0001-7692-905X}
-  %% You can add your own arbitrary detail with
-  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
-  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+	% Not all of these are required!
+	\email{andrea.gallegati@icloud.com}
+	\phone{3381077321}
+	% \mailaddress{Åddrésş, Street, 00000 Cóuntry}
+	\location{Rome, IT} \\
+	\homepage{about.me/andreagalle}
+	% \twitter{@GallegatiAndrea}
+	\linkedin{/andrea-gallegati}
+	\github{andreagalle}
+	\orcid{0000-0001-7692-905X}
+	%% You can add your own arbitrary detail with
+	%% \printinfo{symbol}{detail}[optional hyperlink prefix]
+	% \printinfo{\faPaw}{Hey ho!}[https://example.com/]
 
-  %% Or you can declare your own field with
-  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
-  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
-  % \gitlab{your_id}
-  %%
-  %% For services and platforms like Mastodon where there isn't a
-  %% straightforward relation between the user ID/nickname and the hyperlink,
-  %% you can use \printinfo directly e.g.
-  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
-  %% But if you absolutely want to create new dedicated info fields for
-  %% such platforms, then use \NewInfoField* with a star:
-  % \NewInfoField*{mastodon}{\faMastodon}
-  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
-  %% the full hyperlink.
-  % \mastodon{@username@instance}{https://instance.url/@username}
+	%% Or you can declare your own field with
+	%% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+	% \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+	% \gitlab{your_id}
+	%%
+	%% For services and platforms like Mastodon where there isn't a
+	%% straightforward relation between the user ID/nickname and the hyperlink,
+	%% you can use \printinfo directly e.g.
+	% \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+	%% But if you absolutely want to create new dedicated info fields for
+	%% such platforms, then use \NewInfoField* with a star:
+	% \NewInfoField*{mastodon}{\faMastodon}
+	%% then you can use \mastodon, with TWO arguments where the 2nd argument is
+	%% the full hyperlink.
+	% \mastodon{@username@instance}{https://instance.url/@username}
 }
 
 \makecvheader
 %% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
 % \AtBeginEnvironment{itemize}{\small}
 
-%% Set the left/right column width ratio to 6:4.
-\columnratio{1}
-
-% Start a 2-column paracol. Both the left and right columns will automatically
-% break across pages if things get too long.
-\begin{paracol}{2}
-\cvsection{Experience}
-
-\cvevent{Software Engineer}{IDS AirNav -- ENAV Group}{Apr 2021 -- Ongoing}{Rome, ITA}
-\begin{itemize}
-\item Appointed Security Champion, involved in DevSecOps \& automation to streamline Non-functional requirements.
-\item Developed a web-based migration tool in Python as part of the team maintaining the new IAM solution. Worked on several performance enhancements for the product suite.
-\end{itemize}
-\smallskip
-\cvtag{Java}\cvtag{Spring Boot}\cvtag{Kafka}\cvtag{python}\cvtag{Django}\cvtag{JS}\cvtag{bash} \\
-\cvtag{Docker}\cvtag{Jenkins}\cvtag{Ansible}\cvtag{OWASP}\cvtag{CIS}\cvtag{Keycloak}
-
-\divider
-
-\cvevent{Adjunct Instructor}{Temple University -- Rome Campus}{Jan 2018 -- Ongoing}{Rome, ITA}
-\begin{itemize}
-\item Teaching several classes, including Problem Solving \& Python.
-\end{itemize}
-% \smallskip
-\cvtag{Teaching}\cvtag{Planning}\cvtag{Public speaking}\cvtag{English}
-
-\divider
-
-\cvevent{System Analyst Intern}{Cybertech.eu -- Engineering}{Apr 2021 -- Apr 2021}{Rome, ITA}
-% \begin{itemize}
-% \end{itemize}
-
-\divider
-
-\cvevent{Software Developer Intern}{Accenture Technology}{Dec 2020 -- Mar 2021}{Rome, ITA}
-% \begin{itemize}
-% \end{itemize}
-
-\divider
-
-\cvevent{PhD Researcher \& Teaching Assistant}{Sapienza University}{Sep 2017 -- Jan 2021}{Rome, ITA}
-\begin{itemize}
-\item Conducting my research project, working with a few students each year, that contributed to my own project.
-\item TAing many classes, besides Aerodynamics Labs.
-\end{itemize}
-\smallskip
-\cvtag{Research}\cvtag{Team Leading}\cvtag{Mentoring}\cvtag{Git}\cvtag{Agile}
-
-\medskip
-
-\cvsection{A Day of My Life}
-
-% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
-% \wheelchart{outer radius}{inner radius}{
-% comma-separated list of value/text width/color/detail}
-\wheelchart{1.5cm}{0.5cm}{%
-  6/8em/accent!30/{Sleep,\\beautiful sleep},
-  3/8em/accent!40/Hopeful superhero by night,
-  8/8em/accent!60/Daytime job,
-  2/10em/accent/Teaching Python,
-  5/6em/accent!20/Spending time with family
-}
-
-\cvsection{Projects}
-
-\cvevent{Project 1}{Funding agency/institution}{}{}
-\begin{itemize}
-\item Details
-\end{itemize}
-
-\divider
-
-\cvevent{Project 2}{Funding agency/institution}{Project duration}{}
-A short abstract would also work.
-
-
-% use ONLY \newpage if you want to force a page break for
-% ONLY the current column
-\newpage
-
-\cvsection{Publications}
-
-%% Specify your last name(s) and first name(s) as given in the .bib to automatically bold your own name in the publications list.
-%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
-%% You can specify multiple names, especially if you have changed your name or if you need to highlight multiple authors.
-\mynames{Lim/Lian\bibnamedelima Tze,
-  Wong/Lian\bibnamedelima Tze,
-  Lim/Tracy,
-  Lim/L.\bibnamedelimi T.}
-%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
-
-\nocite{*}
-
-\printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
-
-\divider
-
-\printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
-
-\divider
-
-\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
-
-%% Switch to the right column. This will now automatically move to the second
-%% page if the content is too long.
-\switchcolumn
-
-\cvsection{Education}
-
-\cvevent{Ph.D.\ in Theoretical \& Applied Mechanics}{Sapienza University -- DIMA}{Nov 2017 -- May 2021}{Rome, ITA}
-``Droplet condensation in turbulent jets.'' \\
-\medskip
-\cvtag{HPC}\cvtag{MPI}\cvtag{C}\cvtag{Multiphase Flows}
-
-\divider
-
-\cvevent{M.Sc.\ in Aeronautical Engineering}{Sapienza University -- DIMA}{Sept 2014 -- July 2017}{Rome, ITA}
-``A consistent framework for mass, momentum and energy exchange in two phase flows: DNS of a turbulent jet in the two-way coupling regime.'' \\
-\medskip
-110/110 cum laude \\
-\medskip
-\cvtag{Fortran}\cvtag{PDE}\cvtag{Navier-Stokes Eqs.}
-
-\divider
-
-\cvevent{Erasmus+ Program}{ISAE Supaero -- DAEP}{Jan 2016 -- Aug 2016}{Toulouse, FRA}
-``Cost versus accuracy in LES of wall bounded flows in CharlesX.'' \\
-\medskip
-\cvtag{python}\cvtag{C++}\cvtag{bash}\cvtag{French}
-
-\divider
-
-\cvevent{B.Sc.\ in Aerospace Engineering}{Sapienza University -- Dept of Mathematics}{Sept 2011 -- Nov 2014}{Rome, ITA}
-``The Newton's problem of minimal resistance.'' \\
-\medskip
-110/110 cum laude \\
-\medskip
-\cvtag{Functional Analysis}\cvtag{\LaTeX}
-
-\divider
-
-\cvevent{High School Diploma}{LSS J.F. Kennedy}{Sept 2006 -- July 2011}{Rome, ITA}
-87/100
-
-\bigskip
-
-% \divider
-
-\cvsection{Languages}
-
-\cvskill{English (Full Professional)}{4.5}
-\divider
-
-\cvskill{French}{3.5} %% Supports X.5 values.
-\divider
-
-\cvskill{Italian (Native)}{5}
-
-\cvsection{Referees}
-
-% \cvref{name}{email}{mailing address}
-\cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
-{Address Line 1\\Address line 2}
-
-\divider
-
-\cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
-{Address Line 1\\Address line 2}
-
-\cvsection{My Life Philosophy}
-
-\begin{quote}
-``Whatever Works.'' comedy film directed and written by Woody Allen
-\end{quote}
-
-\cvsection{Most Proud of}
-
-\cvachievement{\faTrophy}{Fantastic Achievement}{and some details about it}
-
-\divider
-
-\cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
-
-\divider
-
-\cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
-
-\cvsection{Strengths}
-
-\cvtag{Hard-working}
-\cvtag{Eye for detail}\\
-\cvtag{Motivator \& Leader}
-
-\divider\smallskip
-
-\cvtag{C++}
-\cvtag{Embedded Systems}\\
-\cvtag{Statistical Analysis}
-
-%% Yeah I didn't spend too much time making all the
-%% spacing consistent... sorry. Use \smallskip, \medskip,
-%% \bigskip, \vspace etc to make adjustments.
-\medskip
-
-
-\end{paracol}
-
+\iflongversion
+	% Single column version
+	\input{main.tex}
+\else
+  % The paracol package lets you typeset columns of text in parallel
+  \usepackage{paracol}
+	% Set the left/right column width ratio to 6:4.
+	\columnratio{1}
+	% Start a 2-column paracol. Both the left and right columns will automatically
+	% break across pages if things get too long.
+	\begin{paracol}{2}
+		% Two-column content goes here
+		\input{main.tex}
+	\end{paracol}
+\fi
 
 \end{document}
