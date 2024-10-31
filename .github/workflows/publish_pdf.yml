@@ -28,7 +28,7 @@ jobs:
 
       # Step 2: Toggle to Short Version and Compile
       - name: Toggle to Short Version
-        run: sed -i '/^\\longversiontrue/c\\longversionfalse' root.tex
+        run: sed -i 's/\\longversiontrue/\\longversionfalse/' root.tex
       - name: Display root.tex contents (for debugging)
         run: cat root.tex
       - name: Compile Short Version
