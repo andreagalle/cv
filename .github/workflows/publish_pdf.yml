@@ -1,0 +1,31 @@
+name: Publish PDF to GitHub Pages
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish_pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure full history for branch switching
+
+      - name: Download root.pdf artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: root.pdf
+          path: ./  # Downloads root.pdf to the current directory
+
+      - name: Publish PDF to gh-pages
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git fetch origin
+          git switch -C gh-pages origin/gh-pages || git checkout --orphan gh-pages
+          mv root.pdf longCV_GALLEGATI_andrea.pdf  # rename as needed
+          git add longCV_GALLEGATI_andrea.pdf
+          git commit -m "Update PDF on GitHub Pages"
+          git push --force origin gh-pages
