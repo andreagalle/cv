@@ -45,11 +45,19 @@ jobs:
       - name: Set up docs Directory for GitHub Pages
         run: mkdir -p docs
 
+      # Debugging to confirm artifacts and files are in the docs directory
+      - name: List files in docs directory 1
+        run: ls -l docs/
+
       - name: Download Long Version Artifact
         uses: actions/download-artifact@v3
         with:
           name: long.pdf
           path: docs/
+
+      # Debugging to confirm artifacts and files are in the docs directory
+      - name: List files in docs directory 2
+        run: ls -l docs/
 
       - name: Download Short Version Artifact
         uses: actions/download-artifact@v3
@@ -57,11 +65,15 @@ jobs:
           name: short.pdf
           path: docs/
 
+      # Debugging to confirm artifacts and files are in the docs directory
+      - name: List files in docs directory 3
+        run: ls -l docs/
+
       - name: Copy index.md, jekyll theme and my profile pic to docs
         run: cp index.md _config.yml andreagalle.jpg docs/
 
       # Debugging to confirm artifacts and files are in the docs directory
-      - name: List files in docs directory
+      - name: List files in docs directory 4
         run: ls -l docs/
 
       - name: Commit and Push to gh-pages
