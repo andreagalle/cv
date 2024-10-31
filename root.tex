@@ -29,7 +29,7 @@
 \else
   % Two column layout for the short version
   \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
-
+  \usepackage{paracol}
 \fi
 
 % Change the font if you want to, depending on whether
@@ -150,9 +150,8 @@
 	\input{main.tex}
 \else
   % The paracol package lets you typeset columns of text in parallel
-  \usepackage{paracol}
 	% Set the left/right column width ratio to 6:4.
-	\columnratio{1}
+	\columnratio{0.55}
 	% Start a 2-column paracol. Both the left and right columns will automatically
 	% break across pages if things get too long.
 	\begin{paracol}{2}
