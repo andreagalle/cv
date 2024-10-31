@@ -3,7 +3,7 @@ name: Build and Publish LaTeX CV
 on:
   push:
     branches:
-      - master
+      - AltaCV
 
 jobs:
   build_and_publish:
@@ -49,16 +49,16 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: long.pdf
-          path: ./docs/
+          path: docs/
 
       - name: Download Short Version Artifact
         uses: actions/download-artifact@v3
         with:
           name: short.pdf
-          path: ./docs/
+          path: docs/
 
-      - name: Copy index.md and jekyll theme to docs
-        run: cp index.md _config.yml docs/
+      - name: Copy index.md, jekyll theme and my profile pic to docs
+        run: cp index.md _config.yml andreagalle.jpg docs/
 
       - name: Commit and Push to gh-pages
         run: |
