@@ -12,13 +12,6 @@ jobs:
         with:
           root_file: root.tex
           args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
-      - name: Run Biber
-        run: biber root
-      - name: Compile LaTeX document (second pass)
-        uses: dante-ev/latex-action@latest
-        with:
-          root_file: root.tex
-          args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
       - name: Save PDF as Artifact
         uses: actions/upload-artifact@v3
         with:
