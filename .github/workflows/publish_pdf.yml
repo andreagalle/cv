@@ -1,50 +1,69 @@
-name: Build and Publish LaTeX Document
+name: Build and Publish LaTeX CV
+
 on:
   push:
     branches:
       - master
 
 jobs:
-  build_latex:
+  build_and_publish:
     runs-on: ubuntu-latest
+
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      - name: Compile LaTeX document
+      # Step 1: Compile the Long Version
+      - name: Compile Long Version
         uses: dante-ev/latex-action@latest
         with:
           root_file: root.tex
           args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
 
-      - name: Save PDF as Artifact
+      - name: Save Long Version as Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: root.pdf
+          name: cv_long.pdf
           path: root.pdf
 
-  publish_pdf:
-    runs-on: ubuntu-latest
-    needs: build_latex
-    steps:
-      - name: Set up Git repository
+      # Step 2: Toggle to Short Version and Compile
+      - name: Toggle to Short Version
+        run: sed -i '/\\longversiontrue/c\\longversionfalse' root.tex
+      - name: Compile Short Version
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: root.tex
+          args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
+
+      - name: Save Short Version as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: cv_short.pdf
+          path: root.pdf
+
+      # Step 3: Publish Both Versions to GitHub Pages
+      - name: Publish PDFs to gh-pages
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: Download root.pdf artifact
+      - name: Download Long Version Artifact
         uses: actions/download-artifact@v3
         with:
-          name: root.pdf
-          path: ./
-
-      - name: Publish PDF to gh-pages
+          name: cv_long.pdf
+          path: ./cv_long.pdf
+      - name: Download Short Version Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: cv_short.pdf
+          path: ./cv_short.pdf
+      - name: Push to gh-pages
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git fetch origin
           git switch -C gh-pages origin/gh-pages || git checkout --orphan gh-pages
-          mv root.pdf longCV_GALLEGATI_andrea.pdf
-          git add longCV_GALLEGATI_andrea.pdf
-          git commit -m "Update PDF on GitHub Pages"
+          mv cv_long.pdf long.pdf
+          mv cv_short.pdf short.pdf
+          git add long.pdf short.pdf
+          git commit -m "Update CV PDFs on GitHub Pages"
           git push --force origin gh-pages
