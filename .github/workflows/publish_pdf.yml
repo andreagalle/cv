@@ -3,7 +3,7 @@ name: Build and Publish LaTeX CV
 on:
   push:
     branches:
-      - master
+      - AltaCV
 
 jobs:
   build_and_publish:
@@ -29,6 +29,8 @@ jobs:
       # Step 2: Toggle to Short Version and Compile
       - name: Toggle to Short Version
         run: sed -i '/^\\longversiontrue/c\\longversionfalse' root.tex
+      - name: Display root.tex contents (for debugging)
+        run: cat root.tex
       - name: Compile Short Version
         uses: dante-ev/latex-action@latest
         with:
