@@ -1,8 +1,11 @@
 name: Publish PDF to GitHub Pages
 on:
-  push:
+  workflow_run:
+    workflows: ["Build LaTeX document"]
+    types:
+      - completed
     branches:
-      - master
+      - master  # Only trigger on completion of build_latex when changes are pushed to master
 
 jobs:
   publish_pdf:
@@ -11,13 +14,13 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Ensure full history for branch switching
+          fetch-depth: 0
 
       - name: Download root.pdf artifact
         uses: actions/download-artifact@v3
         with:
           name: root.pdf
-          path: ./  # Downloads root.pdf to the current directory
+          path: ./
 
       - name: Publish PDF to gh-pages
         run: |
@@ -25,7 +28,7 @@ jobs:
           git config user.email "actions@github.com"
           git fetch origin
           git switch -C gh-pages origin/gh-pages || git checkout --orphan gh-pages
-          mv root.pdf longCV_GALLEGATI_andrea.pdf  # rename as needed
+          mv root.pdf longCV_GALLEGATI_andrea.pdf
           git add longCV_GALLEGATI_andrea.pdf
           git commit -m "Update PDF on GitHub Pages"
           git push --force origin gh-pages
