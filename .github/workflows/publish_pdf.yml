@@ -1,8 +1,11 @@
 name: Build and Publish LaTeX Document
 on:
-  push:
+  workflow_run:
+    workflows: ["Build LaTeX document"]
+    types:
+      - completed
     branches:
-      - master
+      - master  # Only trigger on completion of build_latex when changes are pushed to master
 
 jobs:
   build_latex:
