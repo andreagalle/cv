@@ -1,5 +1,8 @@
 name: Build LaTeX document
-on: [push]
+on:
+  push:
+    branches-ignore:
+      - master  # Prevents running twice on master branch
 
 jobs:
   build_latex:
