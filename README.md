@@ -8,8 +8,20 @@ You can download both versions of my CV below:
 - [One-Pager](https://andreagalle.github.io/cv/short.pdf) (Short Version)
 
 ## Cloning This Project
-If you'd like to clone this repository and maintain the `devcontainer` setup as a `submodule`, run the following commands and follow the detailed instructions linked here:
+To clone this repository, ensuring the `.devcontainer` submodule is fetched automatically, run the following commands and follow the instructions you can find there:
 
     git clone --recurse-submodules https://github.com/andreagalle/cv.git
+
+then, to fetch the latest commit from the submodule repository:
+
+    git submodule update
+
+to list all submodules and their status:
+
+    git submodule
+
+If you have already cloned this repository, you can still initialize and update the `LaTeX` submodule with:
+
+    git submodule update --init --recursive
 
 I hope you enjoy reading my CV project. Happy coding!
