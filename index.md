@@ -4,7 +4,7 @@ title: Andrea Gallegati
 theme: jekyll-theme-minimal
 ---
 
-# My CV in LaTeX - Andrea Gallegati
+# Andrea Gallegati
 
 Hi there! I'm an aerospace engineer, and I love programming — that’s why I decided to write my CV in LaTeX! Another reason is that, with a PhD under my belt, I know LaTeX well and genuinely appreciate its precision and flexibility. 
 
