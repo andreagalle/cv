@@ -3,7 +3,7 @@ name: Build and Publish LaTeX CV
 on:
   push:
     branches:
-      - AltaCV
+      - master
 
 jobs:
   build_and_publish:
@@ -23,7 +23,7 @@ jobs:
       - name: Save Long Version as Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: long.pdf
+          name: long.zip
           path: root.pdf
 
       # Step 2: Toggle to Short Version and Compile
@@ -38,7 +38,7 @@ jobs:
       - name: Save Short Version as Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: short.pdf
+          name: short.zip
           path: root.pdf
 
       # Step 3: Prepare and Publish to GitHub Pages
@@ -48,7 +48,7 @@ jobs:
       - name: Download Long Version Artifact
         uses: actions/download-artifact@v3
         with:
-          name: long.pdf
+          name: long.zip
           path: docs/
 
       - name: Rename Long Version PDF
@@ -57,14 +57,14 @@ jobs:
       - name: Download Short Version Artifact
         uses: actions/download-artifact@v3
         with:
-          name: short.pdf
+          name: short.zip
           path: docs/
 
       - name: Rename Short Version PDF
         run: mv docs/root.pdf docs/short.pdf
 
-      - name: Copy index.md, jekyll theme, and profile pic to docs
-        run: cp index.md _config.yml andreagalle.jpg docs/
+      - name: Copy index.md, jekyll theme, and pic to docs
+        run: cp index.md _config.yml crown.jpg docs/
 
       - name: Commit and Push to gh-pages
         run: |

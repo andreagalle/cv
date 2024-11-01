@@ -1,6 +1,6 @@
 ---
 layout: default
-title: My CV in LaTeX
+title: Andrea Gallegati
 theme: jekyll-theme-minimal
 ---
 
@@ -15,6 +15,8 @@ You can download any version of it, here below:
 - [Detailed CV](./long.pdf) (Extended Version)
 - [One-Pager](./short.pdf) (Short Version)
 
+I did it in my spare time. I even asked a generative AI to rephrase most of it. So if you're wondering - whether or not - to scrape it with another AI, I'm fine with it.
+
 I hope you enjoy reading about me. Happy coding!
 
-![alt text](./andreagalle.jpg)
+![alt text](./crown.jpg)
