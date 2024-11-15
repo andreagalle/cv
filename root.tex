@@ -29,8 +29,10 @@
 \else
   % Two column layout for the short version
   \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
-  \usepackage{paracol}
 \fi
+
+\usepackage{paracol}
+
 
 % Change the font if you want to, depending on whether
 % you're using pdflatex or xelatex/lualatex
@@ -99,11 +101,11 @@
 %% for your publication list
 \input{pubs-num.tex}
 
-% %% sample.bib contains your publications
-% \addbibresource{root.bib}
+%% sample.bib contains your publications
+\addbibresource{root.bib}
 
 \begin{document}
-\name{Andrea Gallegati}
+\name{Andrea Gallegati, Ph.D}
 \tagline{CSSLP – DevSecOps Engineer @ IDS AirNav -- ENAV Group}
 %% You can add multiple photos on the left or right
 \photoR{2.8cm}{bike}
@@ -149,7 +151,7 @@
 	% Single column version
 	\input{main.tex}
 \else
-  % The paracol package lets you typeset columns of text in parallel
+	% The paracol package lets you typeset columns of text in parallel
 	% Set the left/right column width ratio to 6:4.
 	\columnratio{0.55}
 	% Start a 2-column paracol. Both the left and right columns will automatically
