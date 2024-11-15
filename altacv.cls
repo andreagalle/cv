@@ -265,7 +265,7 @@
     \altacv@left@photos\hfill%
     \begin{minipage}{\dimexpr\linewidth-\altacv@photos@width}%
     \raggedright%
-    {\namefont\color{name}\MakeUppercase{\@name}\par}
+    {\namefont\color{name}{\@name}\par}
     \medskip
     {\taglinefont\color{tagline}\@tagline\par}
     \medskip
@@ -417,12 +417,12 @@
 
 \newcommand{\cvref}[3]{%
   \smallskip
-  \textcolor{emphasis}{\textbf{#1}}\par
+  \textcolor{emphasis}{\textbf{#1}} % Name
+  \textcolor{accent}{\small\normalfont\emailsymbol}~\textcolor{body}{#2} % Email, next to the name
+  \par
   \begin{description}[font=\color{accent},style=multiline,leftmargin=1.35em,align=left]
-  \item[\small\normalfont\emailsymbol] #2
-  \item[\small\normalfont\mailaddresssymbol] #3
+    \item[\small\normalfont\mailaddresssymbol] #3 % Address below
   \end{description}
-%   \medskip
 }
 
 \newenvironment{cvcolumn}[1]{\begin{minipage}[t]{#1}\raggedright}{\end{minipage}}

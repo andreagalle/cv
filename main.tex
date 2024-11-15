@@ -1,7 +1,7 @@
 \cvsection{Experience}
 
 \iflongversion
-	\cvevent[IDS AirNav -- ENAV Group]{Platform Engineer}{Jul 2024 -- Ongoing}{Rome, ITA}
+	\cvevent[IDS AirNav -- ENAV Group]{DevOps Engineer}{Jul 2024 -- Ongoing}{Rome, ITA}
 	\begin{itemize}
 		\item Managing several (backend) microservices, shared by any product in the suite, and some web apps, essential for the functionality and management of it.
 		\item Maintaining and frequently updating third-party components to address rapidly emerging vulnerabilities.
@@ -113,7 +113,7 @@
 		\item Interacting with students from different academic backgrounds and coordinating with different professors, with different teaching methods.
 	\end{itemize}
 \else
-	\cvevent[IDS AirNav -- ENAV Group]{Software Engineer}{Apr 2021 -- Ongoing}{Rome, ITA}
+	\cvevent[IDS AirNav -- ENAV Group]{DevSecOps Engineer}{Apr 2021 -- Ongoing}{Rome, ITA}
 	\begin{itemize}
 		\item Appointed Security Champion, involved in DevSecOps \& automation to streamline Non-functional requirements.
 		\item Developed a web-based migration tool in Python as part of the team maintaining the new IAM solution. Worked on several performance enhancements for the product suite.
@@ -126,21 +126,21 @@
 
 	\cvevent[Temple University -- Rome Campus]{Adjunct Instructor}{Jan 2018 -- Ongoing}{Rome, ITA}
 	\begin{itemize}
-	\item Teaching several classes, including Problem Solving \& Python.
+		\item Teaching several classes, including Problem Solving \& Python.
 	\end{itemize}
 	% \smallskip
 	\cvtag{Teaching}\cvtag{Planning}\cvtag{Public speaking}\cvtag{English}
-	
+
 	\divider
-	
+
 	\cvevent[Cybertech.eu -- Engineering]{System Analyst Intern}{Apr 2021 -- Apr 2021}{Rome, ITA}
-	
+
 	\divider
-	
+
 	\cvevent[Accenture Technology]{Software Developer Intern}{Dec 2020 -- Mar 2021}{Rome, ITA}
-	
+
 	\divider
-	
+
 	\cvevent[Sapienza University]{PhD Researcher \& Teaching Assistant}{Sep 2017 -- Jan 2021}{Rome, ITA}
 	\begin{itemize}
 		\item Conducting my research project, working with a few students each year, that contributed to my own project.
@@ -163,51 +163,139 @@
 		2/10em/accent/Teaching,
 		5/6em/accent!20/My family
 	}
-\switchcolumn
+	\switchcolumn
 \fi
 
-% \cvsection{Projects}
+\cvsection{Projects}
 
-% \cvevent{Project 1}{Funding agency/institution}{}{}
-% \begin{itemize}
-% 	\item Details
-% \end{itemize}
+\cvevent[Temple University - Rome Campus]{walkintiber - Immersive Digital Twin of Rome}{Aug 2024 -- Present}{Rome, ITA}
+\begin{itemize}
+	\item Co-founded a high-resolution, 3D digital twin of Rome accessible on the web, allowing users to virtually explore the Eternal City in immersive detail.
+	\item Automated 24/7 pipeline to integrate live community data from OpenStreetMap (OSM), scaling the infrastructure horizontally for global coverage and vertically for enriched realism, including: textures, digital elevation models (DEM), and environmental detail.
+	\item Integrating generative AI for texture creation and prototyped monument modeling using photogrammetry; developing VR compatibility for enhanced user engagement.
+	\item Engaging TUR students and faculty through local "walks in Rome" contributing to OSM, and promoting hands-on learning in data mapping, AI, and VR technologies.
+\end{itemize}
+\smallskip
+This project demonstrates TUR's commitment to innovative educational experiences that blend advanced technology with cultural heritage.
 
-% \divider
+\divider
 
-% \cvevent{Project 2}{Funding agency/institution}{Project duration}{}
-% A short abstract would also work.
+\cvevent[IDS AirNav -- ENAV Group]{Migration Tool - Seamless transition from a legacy IAM solution}{Apr 2023 -- Oct 2023}{Rome, ITA}
+\begin{itemize}
+	\item Designed the migration tool, consisting of two microservices: a Django web application for the dashboard, and Redis for real-time logging capabilities, leveraging Channels (within Django) and eliminating the need for polling.
+	\item Automated the migration process to facilitate a seamless transition from a legacy IAM solution to a modern Keycloak-based IAM system, ensuring minimal downtime and business continuity for users.
+	\item Provided two deployment options: a full-featured version with a graphical interface for configuration and tracking, and a lightweight "headless" version allowing CLI-driven migrations.
+	\item Integrated a bunch of different clients (HTTP, LDAP, PostgreSQL, and SSH using \emph{paramiko}) for accessing and retrieving configurations from the legacy system, ensuring validation features on the dashboard itself.
+\end{itemize}
+\smallskip
+This not only provided a structured approach to the transition, but also enabled detailed tracking and verification, ensuring data integrity and system resilience.
 
+\divider
 
-% % use ONLY \newpage if you want to force a page break for
-% % ONLY the current column
-% \newpage
+\cvevent[NASA SpaceApps Challenge]{CROPP - A whole new way of farming}{Apr 2015 - Oct 2015}{Rome, ITA}
+\begin{itemize}
+	\item First-prize winning project. Easy-to-use platform, for farmers, to monitor and address crop-related threats.
+	\item On-field sensors embedded in distributed hardware devices. Imagery from Low Earth Orbit (LEO) satellites.
+	\item A 48-hour hackathon, to develop a working prototype for the IoT device and an Android mobile app.
+	\item Demo at the World Expo hosted by Milan, in Italy, themed "Feeding the Planet, Energy for Life."
+	\item Pitched the project to NASA’s then-Administrator, Charles Bolden Jr. at the U.S. Pavilion.
+\end{itemize}
 
-% \cvsection{Publications}
+\iflongversion
+	\cvsection{Talks}
+	\cvevent[IDS AirNav -- ENAV Group]{AeroSIG 20th Edition}{11 -- 12 Oct 2022}{Rome, ITA}
+	The Aeronautical Special Interest Group (AeroSIG) conference gathered colleagues and industry experts from over 35 countries, featuring a plenary session on the evolution of IDS AirNav solutions and breakout sessions focused on advanced topics in Air Traffic Management (ATM) and Aeronautical Information Management (AIM). \\
+	\medskip
+	Presentation title: ``IAM Status and Updates.'' \\
+	\smallskip
+	\begin{itemize}
+		\item Outlining the transition from the legacy IAM solution to a new system, based on Keycloak and customizations.
+		\item Addressing IAM modernization strategies, detailing how to leverage Keycloak for improved security/interoperability.
+	\end{itemize}
 
-% %% Specify your last name(s) and first name(s) as given in the .bib to automatically bold your own name in the publications list.
-% %% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
-% %% You can specify multiple names, especially if you have changed your name or if you need to highlight multiple authors.
-% \mynames{Lim/Lian\bibnamedelima Tze,
-% 	Wong/Lian\bibnamedelima Tze,
-% 	Lim/Tracy,
-% 	Lim/L.\bibnamedelimi T.}
-% %% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+	\divider
 
-% \nocite{*}
+	\cvevent[AIMETA - Ass. Italiana Meccanica Teorica e Applicata]{XXIV Congress AIMETA 2019}{15 - 19 Sep 2019}{Rome, ITA}
+	The AIMETA Congress is a prominent event fostering cross-disciplinary collaboration in mechanics, mathematics, and applied sciences. The event is recognized for bridging Rational Mechanics and Mathematical Physics with applications in fields such as biomechanics and material science. \\
+	\medskip
+	Presentation title: ``Droplet Homogeneous Nucleation in Two-Way Coupled Turbulent Flows''
 
-% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+	\divider
 
-% \divider
+	\cvevent[EUROMECH Conference]{ETC17 - European Turbulence Conference}{3 - 6 Sep 2019}{Turin, ITA}
+	The European Turbulence Conference (ETC) is a bi-annual event providing a platform for over 450 scientists to present recent advances in turbulence research. ETC17 gathered experts in flow dynamics, offering insights into cutting-edge developments in the field. \\
+	\medskip
+	Presentation title: ``Droplet Nucleation in Turbulent Steam Jets''
 
-% \printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
+	\divider
 
-% \divider
+	\cvevent[ERCOFTAC Workshop]{DLES12 - Direct and Large Eddy Simulation Workshop}{5 - 7 Jun 2019}{Madrid, ESP}
+	The ERCOFTAC DLES Workshop is dedicated to advancements in turbulent flow simulation, focusing on Direct Numerical Simulation (DNS) and Large Eddy Simulation (LES) techniques. The 2019 edition gathered specialists to discuss advances in computational modeling of transitional and turbulent flows. \\
+	\medskip
+	Presentation title: ``Droplet Homogeneous Nucleation in a Turbulent Steam Jet in the Two-Way Coupling Regime''
 
-% \printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+	\bigskip
 
-%% Switch to the right column. This will now automatically move to the second
-%% page if the content is too long.
+	% % use ONLY \newpage if you want to force a page break for
+	% % ONLY the current column
+	% \newpage
+
+	\cvsection{Publications}
+
+	%% Specify your last name(s) and first name(s) as given in the .bib to automatically bold your own name in the publications list.
+	%% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+	%% You can specify multiple names, especially if you have changed your name or if you need to highlight multiple authors.
+	\mynames{Gallegati/A.}
+	%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+	\nocite{*}
+
+	% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+	% \divider
+
+	% \printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
+
+	% \divider
+
+	\printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
+
+	%% Switch to the right column. This will now automatically move to the second
+	%% page if the content is too long.
+
+	\bigskip
+
+	\columnratio{0.55}
+	% Start a 2-column paracol. Both the left and right columns will automatically break across pages if things get too long.
+	\begin{paracol}{2}
+		% Two-column content goes here
+
+		\cvsection{Awards}
+
+		\cvevent[Fondazione Roma Sapienza]{Excellent graduate student - 6th edition}{16 Apr 2018}{Rome, ITA}
+		Awarded among the best graduates of 2017 at Sapienza.
+
+		\bigskip
+
+		\cvevent[NASA - Kennedy Space Center (KSC)]{Galactic Impact Prize}{2 Sep 2015}{Cape Canaveral, USA}
+		Awarded and invited to attend a scheduled rocket launch.
+
+		\switchcolumn
+
+		\cvsection{Grants}
+
+		\cvevent[Temple University]{Professional Development Grant}{Oct 2024 - Jul 2025}{Rome, ITA}
+		
+		\bigskip
+
+		\cvevent[CINECA]{ISCRA - Class C Projects HP10CEKU6J}{May 2020 - Feb 2021}{Rome, ITA}
+		\cvevent{ISCRA - Class C Projects HP10CQBSIR}{Oct 2018 - Nov 2019}{Rome, ITA}
+
+	\end{paracol}
+\else
+\fi
+
+\bigskip
 
 \cvsection{Education}
 
@@ -262,7 +350,68 @@
 	\divider
 
 	\cvevent[LSS J.F. Kennedy]{High School Diploma}{Sept 2006 -- July 2011}{Rome, ITA}
-	87/100
+	\textbf{87/100} Baccalaureate thesis: ``Revolutions in history and scientific thought.''
+	\medskip\
+	\begin{itemize}
+		\item Playing competitive water polo with daily training. I learned a lot about cooperation, discipline and resilience, both in and out of the pool.
+		\item Advanced education program (PNI), including intensive study of scientific subjects such as mathematics and physics, complemented by the use of computer science as a tool.
+	\end{itemize}
+
+	\bigskip
+
+	\columnratio{0.55}
+	% Start a 2-column paracol. Both the left and right columns will automatically break across pages if things get too long.
+	\begin{paracol}{2}
+		% Two-column content goes here
+
+		\cvsection{Referees}
+
+		% \cvref{name}{email}{mailing address}
+		\cvref{Prof.\ Andrea Dall'Aglio}{Sapienza University}{dallaglio@mat.uniroma1.it}
+		%{Address Line 1\\Address line 2}
+		\cvref{Prof.\ Mary Conran}{Temple University Rome Campus}{mary.conran@temple.edu}
+		%{Address Line 1\\Address line 2}
+		\cvref{Prof.\ Carlo Massimo Casciola}{Sapienza University}{carlomassimo.casciola@uniroma1.it}
+		\cvref{Prof.\ Paolo Gualtieri}{Sapienza University}{paolo.gualtieri@uniroma1.it}
+		\cvref{Leonardo Moavero}{IDS AirNav}{leonardo.moavero@idsairnav.com}
+		\cvref{Valerio Ferrara}{ENAV Group}{valerio.ferrara@enav.it}
+		\cvref{Prof.\ Julien Bodart}{ISAE Supaero}{julien.bodart@isae.fr}
+
+		\switchcolumn
+
+		\cvsection{Languages}
+
+		\cvskill{English (Full Professional)}{4.5}
+		\cvskill{French}{3.5} %% Supports X.5 values.
+		\cvskill{Italian (Native)}{5}
+
+		% \cvsection{Strengths}
+
+		% \cvtag{Hard-working}
+		% \cvtag{Eye for detail}\\
+		% \cvtag{Motivator \& Leader}
+
+		% \divider\smallskip
+
+		% \cvtag{C++}
+		% \cvtag{Embedded Systems}\\
+		% \cvtag{Statistical Analysis}
+
+		\bigskip
+
+		\cvsection{More}
+
+		I love working in diverse teams, fostering growth, and building strong relationships with my colleagues. \par
+
+		\smallskip
+
+		Outside of work, you'll find me cooking with friends and family, discussing movies of all genres, staying active, or diving into late night coding sessions. \par
+
+		\smallskip
+
+		I'm always looking for opportunities to grow, share knowledge, and make a positive impact. I free-dive into the blue and look around. I like to take action.
+
+	\end{paracol}
 
 \else
 
@@ -301,32 +450,19 @@
 	\cvevent[LSS J.F. Kennedy]{High School Diploma}{Sept 2006 -- July 2011}{Rome, ITA}
 	87/100
 
+	\bigskip
+
+	\cvsection{Languages}
+
+	\cvskill{English (Full Professional)}{4.5}
+	\cvskill{French}{3.5} %% Supports X.5 values.
+	\cvskill{Italian (Native)}{5}
+
 \fi
 
-\bigskip
-
-% \divider
-
-\cvsection{Languages}
-
-\cvskill{English (Full Professional)}{4.5}
-\cvskill{French}{3.5} %% Supports X.5 values.
-\cvskill{Italian (Native)}{5}
-
-\divider 
+\divider
 
 Last updated: \today
-
-% \cvsection{Referees}
-
-% % \cvref{name}{email}{mailing address}
-% \cvref{Prof.\ Alpha Beta}{Institute}{a.beta@university.edu}
-% {Address Line 1\\Address line 2}
-
-% \divider
-
-% \cvref{Prof.\ Gamma Delta}{Institute}{g.delta@university.edu}
-% {Address Line 1\\Address line 2}
 
 % \cvsection{My Life Philosophy}
 
@@ -345,18 +481,6 @@ Last updated: \today
 % \divider
 
 % \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
-
-% \cvsection{Strengths}
-
-% \cvtag{Hard-working}
-% \cvtag{Eye for detail}\\
-% \cvtag{Motivator \& Leader}
-
-% \divider\smallskip
-
-% \cvtag{C++}
-% \cvtag{Embedded Systems}\\
-% \cvtag{Statistical Analysis}
 
 % %% Yeah I didn't spend too much time making all the
 % %% spacing consistent... sorry. Use \smallskip, \medskip,
