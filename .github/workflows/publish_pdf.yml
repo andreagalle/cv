@@ -46,7 +46,7 @@ jobs:
         run: mkdir -p docs
 
       - name: Download Long Version Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: long.zip
           path: docs/
@@ -55,7 +55,7 @@ jobs:
         run: mv docs/root.pdf docs/long.pdf
 
       - name: Download Short Version Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: short.zip
           path: docs/
