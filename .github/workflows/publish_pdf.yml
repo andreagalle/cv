@@ -21,7 +21,7 @@ jobs:
           args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
 
       - name: Save Long Version as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: long.zip
           path: root.pdf
@@ -36,7 +36,7 @@ jobs:
           args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
 
       - name: Save Short Version as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: short.zip
           path: root.pdf
