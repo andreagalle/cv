@@ -1,5 +1,4 @@
 name: Build and Publish LaTeX CV
-
 on:
   push:
     branches:
@@ -10,39 +9,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Git repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 1: Compile the Long Version
+      # Compile the Long Version
       - name: Compile Long Version
         uses: dante-ev/latex-action@latest
         with:
           root_file: root.tex
           args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
 
-      - name: Save Long Version as Artifact
+      - name: Save Long Version Artifact
         uses: actions/upload-artifact@v4
         with:
           name: long.zip
           path: root.pdf
 
-      # Step 2: Toggle to Short Version and Compile
-      - name: Toggle to Short Version
+      # Toggle and Compile Short Version
+      - name: Switch to Short Version
         run: sed -i 's/\\longversiontrue/\\longversionfalse/' root.tex
+
       - name: Compile Short Version
         uses: dante-ev/latex-action@latest
         with:
           root_file: root.tex
           args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
 
-      - name: Save Short Version as Artifact
+      - name: Save Short Version Artifact
         uses: actions/upload-artifact@v4
         with:
           name: short.zip
           path: root.pdf
 
-      # Step 3: Prepare and Publish to GitHub Pages
-      - name: Set up docs Directory for GitHub Pages
+      # Prepare GitHub Pages
+      - name: Prepare Docs Directory
         run: mkdir -p docs
 
       - name: Download Long Version Artifact
@@ -63,10 +63,10 @@ jobs:
       - name: Rename Short Version PDF
         run: mv docs/root.pdf docs/short.pdf
 
-      - name: Copy index.md, jekyll theme, and pic to docs
+      - name: Copy Additional Files for GitHub Pages
         run: cp index.md _config.yml crown.jpg docs/
 
-      - name: Commit and Push to gh-pages
+      - name: Deploy to GitHub Pages
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
