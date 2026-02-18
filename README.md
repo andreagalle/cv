@@ -1,10 +1,12 @@
 # Andrea Gallegati
 
-Hi there! I'm an aerospace engineer, and I love programming — that’s why I decided to write my CV in LaTeX! Another reason is that, with a PhD under my belt, I know LaTeX well and genuinely appreciate its precision and flexibility. I’m also passionate about automation, deployment, and containerization, which led me to set up this project in a `devcontainer`. My CV is automatically built with every push/merge into the master branch and deployed as a GitHub page.
+Hi there! I'm an aerospace engineer. I love programming — that’s why I decided to write my CV in LaTeX.
 
-You can download both versions of my CV below:
+I set up this project in a `devcontainer`: my CV is automatically built at every push/merge into the master branch and deployed to this GitHub Page.
 
-- [Extended Version](https://andreagalle.github.io/cv/long.pdf) (Detailed CV)
+You can download any version of it, here:
+
+- [Detailed CV](https://andreagalle.github.io/cv/long.pdf) (Extended Version)
 - [One-Pager](https://andreagalle.github.io/cv/short.pdf) (Short Version)
 
 ## Cloning This Project
@@ -24,4 +26,4 @@ If you have already cloned this repository, you can still initialize and update 
 
     git submodule update --init --recursive
 
-I hope you enjoy reading my CV project. Happy coding!
+I hope you enjoy reading about me. Happy coding!
