@@ -1,0 +1,77 @@
+name: Build and Publish LaTeX CV
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Compile the Long Version
+      - name: Compile Long Version
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: root.tex
+          args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
+
+      - name: Save Long Version Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: long.zip
+          path: root.pdf
+
+      # Toggle and Compile Short Version
+      - name: Switch to Short Version
+        run: sed -i 's/\\longversiontrue/\\longversionfalse/' root.tex
+
+      - name: Compile Short Version
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: root.tex
+          args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
+
+      - name: Save Short Version Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: short.zip
+          path: root.pdf
+
+      # Prepare GitHub Pages
+      - name: Prepare Docs Directory
+        run: mkdir -p docs
+
+      - name: Download Long Version Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: long.zip
+          path: docs/
+
+      - name: Rename Long Version PDF
+        run: mv docs/root.pdf docs/long.pdf
+
+      - name: Download Short Version Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: short.zip
+          path: docs/
+
+      - name: Rename Short Version PDF
+        run: mv docs/root.pdf docs/short.pdf
+
+      - name: Copy Additional Files for GitHub Pages
+        run: cp index.md _config.yml crown.jpg docs/
+
+      - name: Deploy to GitHub Pages
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git fetch origin
+          git switch -C gh-pages origin/gh-pages || git checkout --orphan gh-pages
+          git add docs/
+          git commit -m "Update CV PDFs and index.md on GitHub Pages"
+          git push --force origin gh-pages
