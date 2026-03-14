@@ -1,0 +1,25 @@
+name: Build LaTeX Preview
+on:
+  push:
+    branches-ignore:
+      - master  # Avoid running preview builds on master
+
+jobs:
+  build_preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Compile LaTeX Document
+        uses: dante-ev/latex-action@latest
+        with:
+          root_file: root.tex
+          args: -synctex=0 -interaction=nonstopmode --shell-escape -pdf -file-line-error
+
+      - name: Save PDF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: root.pdf
+          path: root.pdf
