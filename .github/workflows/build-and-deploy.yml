@@ -64,7 +64,7 @@ jobs:
         run: mv docs/root.pdf docs/short.pdf
 
       - name: Copy Additional Files for GitHub Pages
-        run: cp index.md _config.yml crown.jpg docs/
+        run: cp index.md _config.yml suit1.jpg docs/
 
       - name: Deploy to GitHub Pages
         run: |
