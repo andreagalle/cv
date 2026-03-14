@@ -4,6 +4,8 @@ title: Andrea Gallegati
 theme: jekyll-theme-minimal
 ---
 
+![alt text](./suit1.jpg)
+
 # Andrea Gallegati
 
 Hi there! **I'm an aerospace engineer. I love programming** — that’s why I decided to write my CV in LaTeX.
@@ -36,5 +38,3 @@ Today, **I approach Artificial Intelligence with a systems engineering mindset**
 My background in HPC, cloud technologies, containerization, and orchestration make me think of AI not just as models — but **as end-to-end systems operating across cloud-to-edge** environments.
 
 I hope you enjoy reading about me. Happy coding!
-
-![alt text](./crown.jpg)
